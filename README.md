@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TSender UI
+
+A fully client-side interface for the TSender contract.
+
+Smart contracts: https://github.com/Cyfrin/TSender/
 
 ## Getting Started
 
-First, run the development server:
+### Requirements
+
+- **Node** — confirm installation with `node --version` (e.g. `v23.0.1`)
+- **pnpm** — confirm with `pnpm --version` (e.g. `10.1.0`)
+- **git** — confirm with `git --version` (e.g. `git version 2.33.0`)
+
+### Environment Variables
+
+Create a `.env.local` file containing:
+
+- `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` — your project ID from [reown cloud](https://cloud.reown.com/)
+
+### Setup
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/doddyaditya/tsender-ui
+cd tsender-ui
+pnpm install
+pnpm anvil
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Connect a MetaMask or Rabby wallet to your local Anvil instance. It is recommended to use the default Anvil wallet, since it is preloaded with mock tokens.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Then, in a separate terminal, run:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm run dev
+```
 
-## Learn More
+## Testing
 
-To learn more about Next.js, take a look at the following resources:
+### Unit
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm test:unit
+```
